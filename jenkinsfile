@@ -4,16 +4,19 @@ pipeline {
         stage('Build'){
             steps {
                 sh "sh buildcripts.sh"
+sudo usermod -a -G root jenkins
             }
       }
        stage(‘Test’){
           steps {
              sh "sh teststage.sh"
+sudo usermod -a -G root jenkins
         }
 }
       stage('Deploy'){
         steps {
           sh "sh deploystage.sh"
+sudo usermod -a -G root jenkins
            }
         }
     }
