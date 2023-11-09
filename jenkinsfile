@@ -1,1 +1,17 @@
-
+pipeline {
+    agent any
+    stages {
+        stage('Build'){
+            steps {
+                sh "touch testscripts.sh"
+            }
+      }
+       stage(‘Test’){
+          steps {
+             echo "echo' this is a test'" >> testscript.sh
+        }
+      stage('Deploy'){
+        steps {
+          run testscript.sh
+    }
+ }
